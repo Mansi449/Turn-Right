@@ -15,6 +15,9 @@ public class turnRight : MonoBehaviour {
 	 [SerializeField]
 	 private float radiusDecreaseRate = 2f;
 
+	 [SerializeField]
+	private float freeVelocity;
+
      private Vector3 _centre;
 
 	 private Vector3 centerToCar;
@@ -61,6 +64,9 @@ public class turnRight : MonoBehaviour {
 					}
 					
 				}
+				if(transform.GetChild(0).position.x < -100){
+					state = 2;
+				}
 				break;
 			}
 			case 1:
@@ -75,8 +81,14 @@ public class turnRight : MonoBehaviour {
 			if (Input.GetMouseButtonUp(0)){
 					state = 0;
 				}
+				if(transform.GetChild(0).position.x < -100){
+					state = 2;
+				}
 				break;
 			}
+			case 2:
+			transform.Translate(Vector3.forward*freeVelocity*Time.deltaTime);
+			break;
 		}
 	}  
 }
