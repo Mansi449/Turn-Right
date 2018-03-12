@@ -13,7 +13,7 @@ public class turnRight : MonoBehaviour {
      private float radius;
 
 	 [SerializeField]
-	 private float radiusDecreaseRate = 2f;
+	 private float radiusDecreaseRate;
 
 	 [SerializeField]
 	private float freeVelocity;
@@ -32,9 +32,6 @@ public class turnRight : MonoBehaviour {
 	void Start () {
 		state=0;
 		radius = initialRadius;
-		transform.position = new Vector3(0,0,0);
-		_centre = new Vector3(0f,0f,0f);
-		_angle=0f;
 	}
 
 	// Update is called once per frame	
